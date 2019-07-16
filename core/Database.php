@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Core;
 
 use PDO;
@@ -100,5 +99,9 @@ class Database
     {
         $stmt = $this->execute();
         return $stmt->fetchObject();
+        $this->sql = '';
+        return $stmt;
     }
+
+
 }

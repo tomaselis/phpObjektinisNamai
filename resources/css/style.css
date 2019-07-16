@@ -52,15 +52,14 @@ nav a:hover {
 }
 
 .secfoot {
-    position:absolute;
-    bottom:0;
-    width: 100%;
+    /*position:absolute;*/
+    /*bottom: 0;*/
+    width:100%;
     height: 100px;
     background-color: #9ed4ca;
 }
 
 .secfoot h4 {
-
     colour: #445045;
     text-align: center;
     padding: 10px;
@@ -160,7 +159,7 @@ nav a:hover {
 
 /* post kurimo style sheetas */
 
-.container{
+.wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,7 +174,7 @@ nav a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.container textarea {
+.wrapper textarea {
     width: 70%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -205,4 +204,8 @@ button {
     padding: 10px 30px;
     background-color: #efdccb;
     border: none;
+}
+
+.headings {
+    text-align: center;
 }

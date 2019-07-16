@@ -12,20 +12,22 @@
 <!--    </div>-->
 <!--</form>-->
 
+<!---->
+<!--<div class="container">-->
+<!--    <h1>REGISTER</h1>-->
+<!---->
 
-<div class="container">
-    <h1>REGISTER</h1>
+<!--//$this->form ->input('', 'text', 'registerInput', 'name', 'Name','',1)->-->
+<!--//input('', 'email', 'registerInput', 'email', 'Email', '', 1)->-->
+<!--//input('', 'password', 'registerInput', 'password', 'Password', '', 1)->-->
+<!--//input('', 'password', 'registerInput', 'password2', 'Repeat Password', '', 1)->-->
+<!--//-->
+<!--//closeForm('Register');-->
+<!--//-->
+<!--//echo $this->form ->build();-->
+<!---->
+<!--</div>-->
 
+<h2 class="headings">PLEASE REGISTER</h2>
 <?php
-$this->form ->input('', 'text', 'registerInput', 'name', 'Name','',1)->
-input('', 'email', 'registerInput', 'email', 'Email', '', 1)->
-input('', 'password', 'registerInput', 'password', 'Password', '', 1)->
-input('', 'password', 'registerInput', 'password2', 'Repeat Password', '', 1)->
-
-closeForm('Register');
-
-echo $this->form ->build();
-?>
-</div>
-
-
+echo $this->form;

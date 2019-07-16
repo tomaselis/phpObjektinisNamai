@@ -1,17 +1,14 @@
 <?php
-
 namespace App\Helper;
-
-class inputHelper
+class InputHelper
 {
-    public static function passwordGenerator($pass)
+    //validacija
+    //apdirbimai teksto, skaiciu
+    //password generatoriai
+    public static function passwordGenerator($password)
     {
-        return md5(md5($pass.'salt'));
+        return md5(md5($password.'salt'));
     }
-    //validation
-    //apdirbimas kaip su emails buvo
-    //password generator
-    //validacijos skaiciu
     public static function PasswordMatch($password, $password2)
     {
         if ($password === $password2) {
