@@ -3,6 +3,7 @@ namespace App\Controller;
 use Core\Controller;
 use \App\Helper\Helper;
 
+
 class PostController extends Controller
 {
     //echo 'Content from PostController';
@@ -34,20 +35,20 @@ class PostController extends Controller
 //        }
         //atvaizduoti create forma
 
-        $form = new \App\Helper\FormHelper(url('posts/admin/store'), 'post', 'wrapper');
+        $form = new \App\Helper\FormHelper(url('post/'), 'post', 'wrapper');
         $form->addInput([
-            'name' =>  'name',
+            'name' =>  'title',
             'type' => 'text',
             'placeholder' => 'Enter your Blog Title',
              ])
             ->addTextarea([
-                'name' => 'name',
+                'name' => 'content',
                 'placeholder' => 'Write your blog here',
                 'rows'=> '10',
                 'cols'=> '50',
             ])
             ->addInput([
-                'name' =>  'name',
+                'name' =>  'img',
                 'type' => 'text',
                 'placeholder' => 'Please insert link for you image here',
             ])
@@ -75,7 +76,7 @@ class PostController extends Controller
             $postModelObject->setAuthorId(1);
             $postModelObject->save();
             $helper = new Helper();
-            $helper->redirect('post/');
+            $helper->redirect('');
         }else{
             echo 404;
         }
@@ -85,11 +86,39 @@ class PostController extends Controller
     }
     public function edit($id)
     {
-        if (currentUser()) {
-//        $id = (int)$_GET['id'];
-            $postModelObject = new \App\Model\PostModel();
-            $postModelObject->load($id);
-            $this->view->post = $postModelObject;
+//        if (currentUser()) {
+//      $id = (int)$_GET['id'];
+//          $postModelObject = new \App\Model\PostModel();
+//         $postModelObject->load($id);
+//          $this->view->post = $postModelObject;
+//            $this->view->render('posts/admin/edit');
+
+            $form = new \App\Helper\FormHelper(url('post/'), 'post', 'wrapper');
+            $form->addInput([
+                'name' =>  'title',
+                'type' => 'text',
+                'placeholder' => 'Enter your Blog Title',
+                //'value' =>$this->post->getTitle()
+            ])
+                ->addTextarea([
+                    'name' => 'content',
+                    'placeholder' => 'Write your blog here',
+                    'rows'=> '10',
+                    'cols'=> '50',
+                  //  'value' => $this->post->getContent()
+                ])
+                ->addInput([
+                    'name' =>  'img',
+                    'type' => 'text',
+                    'placeholder' => 'Please insert link for you image here',
+                  //  'value' => $this->post->getImage()
+                ])
+                ->addButton([
+                    'name' => 'register',
+                    'type' => 'submit',
+                    'value' => 'register',
+                ], "", "button", "");
+            $this->view->form = $form->get();
             $this->view->render('posts/admin/edit');
 //        echo '<pre>';
 //        print_r($postModelObject);
@@ -99,9 +128,9 @@ class PostController extends Controller
 //        $postObject->load($id);
 //        $this->view->post = $postObject;
 //
-        }else {
-            echo 404;
-        }
+//        }else {
+//            echo 404;
+ //      }
     }
     public function update()
     {

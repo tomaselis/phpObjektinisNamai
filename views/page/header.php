@@ -26,11 +26,12 @@
                 <a href="<?php echo url('account/registration'); ?>">Register</a>
                 <a href="<?php echo url('contact/contactForm'); ?>">Contact</a>
             <?php endif; ?>
-            <div class="left-side">
-                <?php if ($this->user): ?>
-                    Hello, <?php echo $this->user->name; ?>
-                <?php endif; ?>
-            </div>
+            <?php foreach ($this->categories as $category):?>
+                <a href="<?php echo url('category/show', $category->id) ?>"><?php echo $category->name; ?></a>
+            <?php endforeach; ?>
         </nav>
+        <?php if ($this->user): ?>
+            Hi, <?php echo $this->user->name; ?>
+        <?php endif; ?>
     </div>
 </header>
